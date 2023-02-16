@@ -19,10 +19,15 @@ const Form = () => {
     setTodo({ ...todo, [name]: value });
   };
 
+  const dispatch = useDispatch();
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
     
+    //todo를 전개연산자로 풀어주고, nextid를 넣은 id를 넣어준다.
+    //그리고 addTodo(action creator)를 reducer로 dispatch해준다.
+    dispatch(addTodo({...todo,id}));
+
     setTodo({
       id: 0,
       title: "",
