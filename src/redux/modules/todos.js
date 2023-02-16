@@ -60,7 +60,8 @@ const todos = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [action.payload],
+        todos: [...state.todos,action.payload],
+        //불변성 유지를 위해 state안의 todos에 action.payload를 추가해줍니다.
       };
 
     case TOGGLE_STATUS_TODO:
