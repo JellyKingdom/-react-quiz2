@@ -55,10 +55,12 @@ const List = () => {
       <h2 className="list-title">Done..! 🎉</h2>
       <StListWrapper>
         {todos.map((todo, index) => {
+          console.log(index)
           if (todo.isDone) {
             return (
               <StTodoContainer key={todo.id}>
-                <StLink to={`/${index}`} key={todo.id}>
+                {/*/index로 되어있었기때문에 상세페이지로 이동하지않는다! */}
+                <StLink to={`/${todo.id}`} key={todo.id}>
                   <div>상세보기</div>
                 </StLink>
                 <div>
