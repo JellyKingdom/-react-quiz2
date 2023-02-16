@@ -63,6 +63,12 @@ const todos = (state = initialState, action) => {
         todos: [...state.todos,action.payload],
         //불변성 유지를 위해 state안의 todos에 action.payload를 추가해줍니다.
       };
+    
+    case DELETE_TODO:
+      return{
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload),
+      }
 
     case TOGGLE_STATUS_TODO:
       return {
