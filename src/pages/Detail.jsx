@@ -9,6 +9,16 @@ const Detail = () => {
   const todo = useSelector((state) => state.todos.todo);
 
   const { id } = useParams();
+  console.log(id);  //param의 id가 찍힘
+
+  // cannot update error 발생
+  // dispatch(getTodoByID(id));
+
+  useEffect(() => {
+    dispatch(getTodoByID(id));
+  },[dispatch])
+
+
   const navigate = useNavigate();
 
   return (
